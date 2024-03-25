@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>TEST PAGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    {% csrf_token %} {% include 'js-logger.html' %}
+    <br />
+    <button onclick="throwError()" style="color: red">THROW ERROR</button>
+  </body>
+  <script>
+    var errorNum = 0;
+    function throwError() {
+      throw new Error("Hello from error number " + errorNum++ + "!");
+    }
+    throw 5;
+    function testLog() {
+      console.warn("Hello from console.log!");
+    }
+    function nestedLog() {
+      testLog();
+    }
+    nestedLog();
+  </script>
+</html>
