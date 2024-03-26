@@ -2,6 +2,8 @@ import logging
 import os
 from pathlib import Path
 
+from django_log_lens import LOG_FORMAT
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -123,8 +125,6 @@ ALLOW_JS_LOGGING = True  # django_log_lens setting
 if not os.path.exists(LOG_FOLDER):
     os.makedirs(LOG_FOLDER)
 
-LOG_FORMAT = "%(asctime)s %(levelname)s: %(message)s"
-
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -140,7 +140,7 @@ LOGGING = {
             "level": "DEBUG",
             "class": "logging.FileHandler",
             "filename": str(LOG_FOLDER / "client.log"),
-            "formatter": "none",
+            "formatter": "default",
         },
     },
     "loggers": {

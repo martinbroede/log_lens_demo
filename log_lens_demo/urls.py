@@ -18,8 +18,13 @@ from django.contrib import admin
 from django.shortcuts import render
 from django.urls import include, path
 
+
+def demo_view(request):
+    return render(request, 'index.html')
+
+
 urlpatterns = [
-    path('', lambda request: render(request, 'index.html')),
+    path('', demo_view),
     path('admin/', admin.site.urls),
     path('logs/', include('django_log_lens.urls')),
 ]
