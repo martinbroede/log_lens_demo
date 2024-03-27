@@ -145,8 +145,6 @@ LOGGING = {
     },
     "loggers": {
         "django_log_lens.client": {"handlers": ["client_logger"], "level": "DEBUG", "propagate": True},
+        "django": {"handlers": ["log_collector"], "level": "WARNING", "propagate": True},
     }
 }
-
-LOGGING["loggers"].update({logger: {"handlers": ["log_collector"], "propagate": True}
-                          for logger in logging.root.manager.loggerDict})
