@@ -12,11 +12,17 @@
     <button onclick="throwError()" style="color: red">THROW ERROR</button>
   </body>
   <script>
-    var errorNum = 0;
-    function throwError() {
+    var errorNum = 0; function throwError() {
       throw new Error("Hello from error number " + errorNum++ + "!");
     }
-    throw 5;
+
+    console.debug("Hello from console.debug!");
+    console.info("Hello from console.info!");
+    console.log("Hello from console.log!");
+    console.warn("Hello from console.warn!");
+    console.error("Hello from console.error!");
+    console.assert(false, "Hello from console.assert!");
+
     function testLog() {
       console.warn("Hello from console.log!");
     }
@@ -24,5 +30,6 @@
       testLog();
     }
     nestedLog();
+    throw 42;
   </script>
 </html>
