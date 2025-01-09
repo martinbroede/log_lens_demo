@@ -12,7 +12,8 @@
     <button onclick="throwError()" style="color: red">THROW ERROR</button>
   </body>
   <script>
-    var errorNum = 0; function throwError() {
+    var errorNum = 0;
+    function throwError() {
       throw new Error("Hello from error number " + errorNum++ + "!");
     }
 
